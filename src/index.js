@@ -1,29 +1,35 @@
 
+const divCake = document.querySelector('div#Cake.tabcontent')
+const divPie = document.querySelector('div#Pie.tabcontent')
+const divTart = document.querySelector('div#Tart.tabcontent')
+const divOther = document.querySelector('div#Other.tabcontent')
 
-
-const div1 = document.querySelector("div.info")
-
-function renderAlldesserts(dessertArray) {
+function renderAllDesserts(dessertArray) {
     dessertArray.forEach(dessertObj => {
       renderOneDessert(dessertObj)
     })  
   }
 
+  
 function renderOneDessert(dessertObj) {
-console.log(dessertObj.name)
-
     const div = document.createElement("div")
-   
     
     div.innerHTML = `
     <h2>${dessertObj.name}</h2>
     <img src="${dessertObj.picture}" class="dessert-picture" />
-    <li>${dessertObj.likes} Likes</li>
+    <div>${dessertObj.likes} Likes</div>
     <button class="like-btn" data-id="${dessertObj.likes}">Like <3</button>
     `
-    div1.append(div)
 
-    
+    if (dessertObj.category=="Cake")
+    {divCake.append(div)}
+    else if (dessertObj.category=="Tart")
+    {divTart.append(div)}
+    else if (dessertObj.category=="Pie")
+    {divPie.append(div)}
+    else if (dessertObj.category=="Other")
+    {divOther.append(div)}
+  
   }
   
 
@@ -31,16 +37,31 @@ console.log(dessertObj.name)
   fetch("http://localhost:3000/desserts")
     .then(r => r.json())
     .then(dessertArray => {
-      console.log(dessertArray)
     
-      renderAlldesserts(dessertArray)
+      renderAllDesserts(dessertArray)
     })
 
 
-// desserts =
-// [
-//     {name: "Apple & Blackberry Crumble",
-// picture:"https:\/\/www.themealdb.com\/images\/media\/meals\/xvsurr1511719182.jpg",
-// category: "Other",
-// likes: 0  
-// },
+    //makes tabs clickable
+
+    function openDessert(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+      
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+
+
+  //like button
+  const likeButton = document.querySelectorAll('button.like-btn')
+
