@@ -11,13 +11,16 @@
     <header>
         <h2 class='banner'>ChubChub's Bakery</h2>
       </header>
-      <nav>
+      <div class="favorite-list">
+      </div>
+      <nav class="category">
         <div class="tab">
           <button class="tablinks" onclick="openDessert(event, 'Cake')" id="defaultOpen">Cakes</button>
           <button class="tablinks" onclick="openDessert(event, 'Pie')">Pies</button>
           <button class="tablinks" onclick="openDessert(event, 'Tart')">Tarts</button>
           <button class="tablinks" onclick="openDessert(event, 'Other')">Other</button>
         </div>
+        
         
         <div id="Pie" class="tabcontent">
           <h1>Pies</h1>
@@ -38,7 +41,7 @@
           <h1>Other</h1>
           
         </div>
-       
+      
         
         <!-- <div class='classdiv'>
           <div class='nav-list-item'>Cakes</div>

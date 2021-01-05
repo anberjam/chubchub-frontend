@@ -92,7 +92,7 @@ body {font-family: "Lato", sans-serif;} */
   font-family: 'Dancing Script', cursive;
   font-size: 80px;
   text-align: center;
-  background-image: url(https://i.pinimg.com/originals/b4/71/b7/b471b77827fa0826fa4a5242b37aaa85.jpg);
+  background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F760967668272786114%2F&psig=AOvVaw3CH-bXt6UvL2JIgSGELQHk&ust=1609966319734000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMisxIfWhe4CFQAAAAAdAAAAABAD);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -101,6 +101,24 @@ body {font-family: "Lato", sans-serif;} */
   
 }
 
+.favorite-list {
+  display: flex;
+  overflow-x: auto;
+  margin: 1rem 0;
+  max-width: calc(100vw - 2rem);
+}
+
+.category {
+background-color: blue;
+display: flex;
+justify-items: center;
 
 
+}
+
+
+
+.dessert-picture {
+  height: 350px;
+}
 

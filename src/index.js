@@ -18,6 +18,7 @@ function renderOneDessert(dessertObj) {
     <h2>${dessertObj.name}</h2>
     <img src="${dessertObj.picture}" class="dessert-picture" />
     <div>${dessertObj.likes} Likes</div>
+    <button class="button" id="Ok"><img src="images/ok.png"></button>
     <button class="like-btn" data-id="${dessertObj.likes}">Like <3</button>
     `
 
@@ -62,6 +63,12 @@ function renderOneDessert(dessertObj) {
       document.getElementById("defaultOpen").click();
 
 
-  //like button
-  const likeButton = document.querySelectorAll('button.like-btn')
+      const nav = document.querySelector('nav')
+      const dessertCollection = document.createElement("div")
+      dessertCollection.className = "dessert-collection"
+      nav.append(dessertCollection)
+      dessertCollection.append(divCake)
+      dessertCollection.append(divPie)
+      dessertCollection.append(divTart)
+      dessertCollection.append(divOther)
 
