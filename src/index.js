@@ -13,13 +13,14 @@ function renderAllDesserts(dessertArray) {
   
 function renderOneDessert(dessertObj) {
     const div = document.createElement("div")
+
     
     div.innerHTML = `
     <h2>${dessertObj.name}</h2>
     <img src="${dessertObj.picture}" class="dessert-picture" />
-    <div>${dessertObj.likes} Likes</div>
-    <button class="button" id="Ok"><img src="images/ok.png"></button>
-    <button class="like-btn" data-id="${dessertObj.likes}">Like <3</button>
+    
+    <button class="like-btn">Like ♡ </button>
+    <button class="add-btn" id = ${dessertObj.id}> ADD TO FAVORITES </button>
     `
 
     if (dessertObj.category=="Cake")
@@ -72,3 +73,42 @@ function renderOneDessert(dessertObj) {
       dessertCollection.append(divTart)
       dessertCollection.append(divOther)
 
+
+      const likeButton = document.querySelector
+
+
+
+
+//favorites list
+const favList = document.querySelector('div.favorite-list')
+const favButton = document.querySelector('button.add-btn')
+
+
+dessertCollection.addEventListener("click", function(event) {
+  if (event.target.matches(".add-btn")) {
+    const dessertId = event.target.id
+
+    //create a new favorite object
+
+    const newFav = {
+      dessert_id: dessertId
+    }
+    
+    fetch(`http://localhost:3000/favorites`, {
+      method: 'POST',
+      headers: { "content-type": "application/json"}, 
+      body: JSON.stringify({newFav})
+    })
+    .then((res) => res.json())
+    .then((updatedFavs) => {console.log(updatedFavs)})
+    //create a method that adds fav to fav list
+
+
+    
+   }
+
+
+
+
+
+})
