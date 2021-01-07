@@ -22,7 +22,7 @@ function renderOneDessert(dessertObj) {
     const img = document.createElement('img')
     img.src = dessertObj.picture
     img.className = 'dessert-picture'
-    img.id = dessertObj.id
+    div.id = `dessert-${dessertObj.id}`
     img.addEventListener('click', function(event){
       const editDiv = document.createElement('div')
       
@@ -247,34 +247,40 @@ favListSection.addEventListener("click", function(event){
         if (event.target.matches(".update-dessert-button")) {
           const dessertId = event.target.attributes.dessertid.value;
           // console.log({ dessertId, event: event.target })
-    
+          
           const updateDessertForm = document.querySelector(`edit-${dessertId}`);
-    
+          
           const updateNameInput = document.querySelector(`.update-dessert-name-${dessertId}`)
           const updatePicture=document.querySelector(`.update-dessert-picture-${dessertId}`)
           const updateCategory=document.querySelector(`.update-category-${dessertId}`)
-    
+          
           // const updateName = updateNameInput.value
-    
+          
           console.log(updateCategory)
           const updateDessertObj = {
-          "name": updateNameInput.value,
-          "picture": updatePicture.value,
-          "category": updateCategory.value,
+            "name": updateNameInput.value,
+            "picture": updatePicture.value,
+            "category": updateCategory.value,
             "likes": 0
           }
-    
+          
           configObj = {method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(updateDessertObj) }
-    
+          
+          const thisDessertDiv = document.querySelector(`#dessert-${dessertId}`)
           fetch(`http://localhost:3000/desserts/${dessertId}`, configObj)
           .then(r => r.json())
-          .then(console.log)
+          .then(newDessertObject => {
+          
+            thisDessertDiv.children[1].src = newDessertObject.picture
+            thisDessertDiv.children[0].textContent = newDessertObject.name
+            
+          })
         }})
-
+        
     //new dessert form
     const newDessertForm = document.querySelector('.new-dessert-form')
     const dessertFormDiv = document.querySelector('.dessert-form-div')
