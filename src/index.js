@@ -115,27 +115,29 @@ dessertCollection.addEventListener("click", function(event) {
   }
   else if (event.target.matches(".add-btn")) {
 
-     const specificAddButton = event.target
-     const closest = specificAddButton.closest("div")
-      const omg = closest.querySelector("img")
-      const omgName = closest.querySelector("h2")
-     let omgNameText = omgName.innerText 
-      const nameTextA = document.createElement("a")
+  //    const specificAddButton = event.target
+//      const closest = specificAddButton.closest("div")
+//       const omg = closest.querySelector("img")
+//       const omgName = closest.querySelector("h2")
+//      let omgNameText = omgName.innerText 
+//       const nameTextA = document.createElement("a")
     
     
-      const omgPicLink = omg.src
-      const specificAddButtonId = event.target.id
-      const favoriteMenuSpot = document.querySelector("div.scrollmenu")
-    const addFavPic = document.createElement("img")
-    const addFavPicDiv = document.createElement("a")
+//       const omgPicLink = omg.src
+       const specificAddButtonId = event.target.id
+//       const favoriteMenuSpot = document.querySelector("div.scrollmenu")
+//     const addFavPic = document.createElement("img")
+//     const addFavPicDiv = document.createElement("a")
 
 
-    addFavPic.src = `${omgPicLink}`
+//     addFavPic.src = `${omgPicLink}`
 
-    nameTextA.innerHTML = `${omgNameText} <br> <img src="${omgPicLink}">`
+//     nameTextA.innerHTML = `${omgNameText} <br> <img src="${omgPicLink}"><br>
+//     <button class="delete-fav-btn"> Delete Favorite </button>
+//     `
    
     
-favoriteMenuSpot.append(nameTextA)
+// favoriteMenuSpot.append(nameTextA)
 
     
 
@@ -156,6 +158,31 @@ favoriteMenuSpot.append(nameTextA)
     .then(r => r.json())
     .then(newFav => { 
 
+      const specificAddButton = event.target
+     const closest = specificAddButton.closest("div")
+      const omg = closest.querySelector("img")
+      const omgName = closest.querySelector("h2")
+     let omgNameText = omgName.innerText 
+      const nameTextA = document.createElement("a")
+      nameTextA.id = `${newFav.id}`
+    
+    
+      const omgPicLink = omg.src
+      const specificAddButtonId = event.target.id
+      const favoriteMenuSpot = document.querySelector("div.scrollmenu")
+    const addFavPic = document.createElement("img")
+ 
+
+
+    addFavPic.src = `${omgPicLink}`
+
+    nameTextA.innerHTML = `${omgNameText} <br> <img src="${omgPicLink}"><br>
+    <button class="delete-fav-btn"> Delete Favorite </button>
+    `
+   
+    
+favoriteMenuSpot.append(nameTextA)
+
         // const closestImage = specificAddButton.closest("img")
         // console.log(closestImage)
 
@@ -166,35 +193,68 @@ favoriteMenuSpot.append(nameTextA)
 
 })
 
+
+//delete button in favorites list
+
+const favListSection = document.querySelector("div.favorite-list")
+
+favListSection.addEventListener("click", function(event){
+
+  if (event.target.matches(".delete-fav-btn")) { 
+    const thisButton = event.target
+    const closestA = thisButton.closest("a")
+    const specificFavId = closestA.id
+    closestA.remove()
+
+
+    fetch(`http://localhost:3000/favorites/${specificFavId}`, { method: "DELETE" })
+      // .then(r => r.json())
+      // .then(
+        
+
+        
+
+  }
+
+
+
+})
+
+
+
+
+
+
+
 //render one fav
 //render all fav
 //get fetch favorites 
 
-//include delete button 
 
 
 
-function renderAllFavorites(){
-  favoriteArray.forEach(favoriteObj => {
-    renderOneFavorite(favoriteObj) 
+
+// function renderAllFavorites(favoriteArray){
+//   favoriteArray.forEach(favoriteObj => {
+//     renderOneFavorite(favoriteObj) 
    
-  })  
-}
+//   })  
+// }
 
 
 
-function renderOneFavorite(favoriteObj){
+// function renderOneFavorite(favoriteObj){
 
-}
+// }
 
 
 
-fetch("http://localhost:3000/favorites")
-.then(r => r.json())
-.then(favoriteArray => {
+// fetch("http://localhost:3000/favorites")
+// .then(r => r.json())
+// .then(favoriteArray => {
 
-  renderAllFavorites(favoriteArray)
-})
+//   renderAllFavorites(favoriteArray)
+// })
 
     
    
