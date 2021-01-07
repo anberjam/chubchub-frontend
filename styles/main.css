@@ -101,6 +101,28 @@ body {font-family: "Lato", sans-serif;} */
   
 }
 
+aside {
+  background-color: magenta;
+}
+
+button.tablinks{
+  background-color: #ffff00;
+  cursor: pointer;
+  margin: 20px;
+  color: #40ff2f;
+  font-size: 28px;
+  padding: 30px;
+  display:inline-block;
+  border-radius: 10px;
+  border: 8px double #a52edb;
+  font-family:Trebuchet MS;
+  padding:26px 43px;
+  
+  
+}
+
+
+
 .favorite-list {
   display: flex;
   overflow-x: auto;
@@ -110,10 +132,20 @@ body {font-family: "Lato", sans-serif;} */
 
 .category {
 background-color: blue;
+background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRArfV7ggRU2QUlx9dm2FUq-M953e6cT1QYmQ&usqp=CAU");
+background-repeat: no-repeat;
+background-size: cover;
 display: flex;
 justify-items: center;
 text-align: center;
 
+
+
+
+}
+
+div.dessert-collection {
+  text-align: center;
 
 
 }
