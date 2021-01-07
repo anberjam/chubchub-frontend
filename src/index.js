@@ -115,29 +115,9 @@ dessertCollection.addEventListener("click", function(event) {
   }
   else if (event.target.matches(".add-btn")) {
 
-  //    const specificAddButton = event.target
-//      const closest = specificAddButton.closest("div")
-//       const omg = closest.querySelector("img")
-//       const omgName = closest.querySelector("h2")
-//      let omgNameText = omgName.innerText 
-//       const nameTextA = document.createElement("a")
-    
-    
-//       const omgPicLink = omg.src
+
        const specificAddButtonId = event.target.id
-//       const favoriteMenuSpot = document.querySelector("div.scrollmenu")
-//     const addFavPic = document.createElement("img")
-//     const addFavPicDiv = document.createElement("a")
 
-
-//     addFavPic.src = `${omgPicLink}`
-
-//     nameTextA.innerHTML = `${omgNameText} <br> <img src="${omgPicLink}"><br>
-//     <button class="delete-fav-btn"> Delete Favorite </button>
-//     `
-   
-    
-// favoriteMenuSpot.append(nameTextA)
 
     
 
@@ -183,8 +163,7 @@ dessertCollection.addEventListener("click", function(event) {
     
 favoriteMenuSpot.append(nameTextA)
 
-        // const closestImage = specificAddButton.closest("img")
-        // console.log(closestImage)
+
 
 
 
@@ -208,8 +187,7 @@ favListSection.addEventListener("click", function(event){
 
 
     fetch(`http://localhost:3000/favorites/${specificFavId}`, { method: "DELETE" })
-      // .then(r => r.json())
-      // .then(
+
         
 
         
