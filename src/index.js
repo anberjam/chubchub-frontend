@@ -28,7 +28,7 @@ function renderOneDessert(dessertObj) {
     editDiv.innerHTML =`
         <form class='edit-dessert-form' dessertId='edit-${dessertObj.id}'>
           <h3>Edit this Dessert</h3>
-          <select name='category' class="update-category-${dessertObj.id}'>
+          <select name='category' class='update-category-${dessertObj.id}'>
             <option value="Pie">Pie</option>
             <option value="Cake">Cake</option>
             <option value="Tart">Tart</option>
@@ -43,13 +43,17 @@ function renderOneDessert(dessertObj) {
           <button type='button' id='delete-${dessertObj.id}' dessertId='${dessertObj.id}' class='delete-dessert-button'> Delete this dessert</button>
         </form>`
     div.append(editDiv)
-      // const deleteButton = document.querySelector('.delete-dessert-button')
+    const deleteButton = document.querySelector(`#delete-${dessertObj.id}`)
     
-      // deleteButton.addEventListener("click", function(event){
-      //   fetch(`http://localhost:3000/desserts/${dessertId}`, { method: "DELETE" })
-      //   .then(r => r.json())
-      //   .then(console.log)
-      // })
+    deleteButton.addEventListener("click", function(event){
+      // console.log('clicked')
+      // console.log(event.target.id)
+      // console.log(dessertObj.id)
+      
+      fetch(`http://localhost:3000/desserts/${dessertObj.id}`, { method: "DELETE" })
+      .then(r => r.json())
+      .then(console.log)
+    })
         
  
   })
@@ -164,12 +168,12 @@ dessertCollection.addEventListener("click", function(event) {
       const updateCategory=document.querySelector(`.update-category-${dessertId}`)
       
       // const updateName = updateNameInput.value
-
-      console.log(updateCategory.select.value)
+      
+      console.log(updateCategory)
       const updateDessertObj = {
       "name": updateNameInput.value,
       "picture": updatePicture.value,
-        // "category": updateCategory.select.value,
+      "category": updateCategory.value,
         "likes": 0
       }
 
@@ -183,6 +187,8 @@ dessertCollection.addEventListener("click", function(event) {
       .then(r => r.json())
       .then(console.log)
     }})
+
+ 
 
     //create a new favorite object
 
@@ -204,7 +210,6 @@ const newDessertForm = document.querySelector('.new-dessert-form')
 const dessertFormDiv = document.querySelector('.dessert-form-div')
 const url = 'http://localhost:3000/desserts'
 
-// const updateDessertButton = document.querySelector('.update-dessert-button')
 
 
 newDessertForm.addEventListener('submit', function(event){
