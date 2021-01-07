@@ -20,9 +20,9 @@ function renderOneDessert(dessertObj) {
     
     div.innerHTML = `
     <h2>${dessertObj.name}</h2>
-    <img src="${dessertObj.picture}" class="dessert-picture" />
+    <img src="${dessertObj.picture}" class="dessert-picture"/>
     
-    <button class="like-btn" id=${dessertObj.id}>Like ♡ </button>
+    <button class="like-btn" id=${dessertObj.id} style= "background: rgb(51,255,211)">Like ♡ </button>
     <button class="add-btn" id = ${dessertObj.id}> ADD TO FAVORITES </button>
     `
 
@@ -86,16 +86,12 @@ function renderOneDessert(dessertObj) {
 
 
 
-
-//favorites list
-const favList = document.querySelector('div.favorite-list')
-const favButton = document.querySelector('button.add-btn')
-
-
 dessertCollection.addEventListener("click", function(event) {
   if (event.target.matches(".like-btn")) {
     const dessertId = event.target.id
-    event.target.style.background = '#FF3333';
+    const specificLikeButton = event.target
+    specificLikeButton.style = "background: rgb(255,33,33)" 
+    
     
     //fetch dessert data and change likes to 1. also change color of like
 
@@ -111,30 +107,94 @@ dessertCollection.addEventListener("click", function(event) {
 
     fetch(`http://localhost:3000/desserts/${dessertId}`, configObj)
     .then(r => r.json())
-    .then(console.log)
+    .then(updatedDessert =>     {
     
     
+  }
+    )
+  }
+  else if (event.target.matches(".add-btn")) {
+
+     const specificAddButton = event.target
+     const closest = specificAddButton.closest("div")
+      const omg = closest.querySelector("img")
+      const omgName = closest.querySelector("h2")
+     let omgNameText = omgName.innerText 
+      const nameTextA = document.createElement("a")
+    
+    
+      const omgPicLink = omg.src
+      const specificAddButtonId = event.target.id
+      const favoriteMenuSpot = document.querySelector("div.scrollmenu")
+    const addFavPic = document.createElement("img")
+    const addFavPicDiv = document.createElement("a")
+
+
+    addFavPic.src = `${omgPicLink}`
+
+    nameTextA.innerHTML = `${omgNameText} <br> <img src="${omgPicLink}">`
    
-
-  }})
-
-
-
-    //create a new favorite object
-
-    // const newFav = {
-    //   dessert_id: dessertId
-    // }
     
-    // fetch(`http://localhost:3000/favorites`, {
-    //   method: 'POST',
-    //   headers: { "content-type": "application/json"}, 
-    //   body: JSON.stringify({newFav})
-    // })
-    // .then((res) => res.json())
-    // .then((updatedFavs) => {console.log(updatedFavs)})
-    // //create a method that adds fav to fav list
+favoriteMenuSpot.append(nameTextA)
 
+    
+
+    const newFavObj = {
+      dessert_id: specificAddButtonId
+    }
+
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(newFavObj)
+    }
+
+    fetch("http://localhost:3000/favorites", config)
+    .then(r => r.json())
+    .then(newFav => { 
+
+        // const closestImage = specificAddButton.closest("img")
+        // console.log(closestImage)
+
+
+
+    })
+  }
+
+})
+
+//render one fav
+//render all fav
+//get fetch favorites 
+
+//include delete button 
+
+
+
+function renderAllFavorites(){
+  favoriteArray.forEach(favoriteObj => {
+    renderOneFavorite(favoriteObj) 
+   
+  })  
+}
+
+
+
+function renderOneFavorite(favoriteObj){
+
+}
+
+
+
+fetch("http://localhost:3000/favorites")
+.then(r => r.json())
+.then(favoriteArray => {
+
+  renderAllFavorites(favoriteArray)
+})
 
     
    

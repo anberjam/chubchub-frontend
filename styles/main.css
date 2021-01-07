@@ -130,25 +130,31 @@ div.scrollmenu {
   overflow: auto;
   white-space: nowrap;
   
-  padding-bottom: 10px;
-	padding-top: 10px;
-	text-align: center;
-	left: 0px;
-  width: 100%;
   
+	text-align: center;
+	left: 4px;
+  width: 1000%;
+   
 
 }
 
-div.scrollmenu a {
+
+
+div.scrollmenu a{
   display: inline-block;
   color: white;
   text-align: center;
-  padding: 50px;
+  padding: 14px;
   text-decoration: none;
 }
 
 div.scrollmenu a:hover {
   background-color: magenta;
+}
+
+div.scrollmenu img {
+  max-width:35%; 
+  height:auto; 
 }
 
 ::-webkit-scrollbar {
