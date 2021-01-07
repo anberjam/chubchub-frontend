@@ -129,7 +129,7 @@ function renderOneDessert(dessertObj) {
       dessertCollection.append(divOther)
 
 
-      const likeButton = document.querySelector('button.like-btn')
+      const likeButton = document.querySelector('.like-btn')
 
 
 
@@ -159,6 +159,37 @@ dessertCollection.addEventListener("click", function(event) {
     
   }
     )
+  }
+  else if (event.target.matches(".update-dessert-button")) {
+
+    const dessertId = event.target.attributes.dessertid.value;
+    // console.log({ dessertId, event: event.target })
+
+    const updateDessertForm = document.querySelector(`edit-${dessertId}`);
+    
+    const updateNameInput = document.querySelector(`.update-dessert-name-${dessertId}`)
+    const updatePicture=document.querySelector(`.update-dessert-picture-${dessertId}`)
+    const updateCategory=document.querySelector(`.update-category-${dessertId}`)
+    
+    // const updateName = updateNameInput.value
+    
+
+    const updateDessertObj = {
+    "name": updateNameInput.value,
+    "picture": updatePicture.value,
+    "category": updateCategory.value,
+      "likes": 0
+    }
+
+    configObj = {method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updateDessertObj) }
+
+    fetch(`http://localhost:3000/desserts/${dessertId}`, configObj)
+    .then(r => r.json())
+    .then(console.log)
   }
   else if (event.target.matches(".add-btn")) {
 
