@@ -106,16 +106,16 @@ aside {
 }
 
 button.tablinks{
-  background-color: #ffff00;
+  background-color: lavender;
   cursor: pointer;
   margin: 20px;
-  color: #40ff2f;
+  color: black;
   font-size: 28px;
   padding: 30px;
   display:inline-block;
   border-radius: 10px;
   border: 8px double #a52edb;
-  font-family:Trebuchet MS;
+  font-family: American Typewriter, serif;
   padding:26px 43px;
   
   
@@ -136,7 +136,7 @@ background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAr
 background-repeat: no-repeat;
 background-size: cover;
 display: flex;
-justify-items: center;
+justify-content: space-between;
 text-align: center;
 
 
@@ -146,15 +146,34 @@ text-align: center;
 
 div.dessert-collection {
   text-align: center;
+  background-color: #40f;
+  display: flex;
+  justify-content: center;
+}
 
+.dessert-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tablinks {
+  background-color: purple;
 
 }
 
-
+h1 {
+  font-family: American Typewriter,serif;
+  font-weight: 200;
+  background-color: pink;
+}
 
 .dessert-picture {
-  height: 350px;
-
+  width: 200px;
+  height: 200px;
+  border: 5px solid transparent;
+  padding: 10px;
+  border-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVt1LOs0mmE5U3VxNet3QQT94HY9lbtRys7g&usqp=CAU);
 }
 
 div.scrollmenu {

@@ -18,7 +18,7 @@ function renderAllDesserts(dessertArray) {
 
 function renderOneDessert(dessertObj) {
     const div = document.createElement("div")
-
+    div.className = 'dessert-container'
     const img = document.createElement('img')
     img.src = dessertObj.picture
     img.className = 'dessert-picture'
@@ -256,7 +256,7 @@ favListSection.addEventListener("click", function(event){
           
           // const updateName = updateNameInput.value
           
-          console.log(updateCategory)
+          
           const updateDessertObj = {
             "name": updateNameInput.value,
             "picture": updatePicture.value,
@@ -274,7 +274,7 @@ favListSection.addEventListener("click", function(event){
           fetch(`http://localhost:3000/desserts/${dessertId}`, configObj)
           .then(r => r.json())
           .then(newDessertObject => {
-          
+            
             thisDessertDiv.children[1].src = newDessertObject.picture
             thisDessertDiv.children[0].textContent = newDessertObject.name
             
