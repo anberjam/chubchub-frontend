@@ -275,7 +275,7 @@ favListSection.addEventListener("click", function(event){
           fetch(`http://localhost:3000/desserts/${dessertId}`, configObj)
           .then(r => r.json())
           .then(newDessertObject => {
-            
+           
             thisDessertDiv.children[1].src = newDessertObject.picture
             thisDessertDiv.children[0].textContent = newDessertObject.name
             
