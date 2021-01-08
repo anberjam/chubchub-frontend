@@ -42,16 +42,30 @@ button.tablinks{
   margin: 1rem 0;
   max-width: calc(100vw - 2rem); 
 }
-
 .category {
-
-  background-image: url(https://thumbs.dreamstime.com/b/pastry-line-icons-seamless-vector-pattern-bakery-background-pastry-line-icons-seamless-vector-pattern-bakery-outline-repeat-wrap-138887852.jpg);
-  background-repeat: repeat;
+  position: relative;
+  z-index: 1;
   background-size: contain;
   display: flex;
   justify-content: start;
   text-align: center;
   flex-wrap: wrap;
+}
+
+.category::after {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;  
+  opacity: .4; 
+  z-index: -3;
+
+  background-image: url(https://thumbs.dreamstime.com/b/pastry-line-icons-seamless-vector-pattern-bakery-background-pastry-line-icons-seamless-vector-pattern-bakery-outline-repeat-wrap-138887852.jpg);
+  background-repeat: repeat;
+  position: absolute;
+ 
 }
 
 div.dessert-collection {
@@ -102,7 +116,7 @@ h3 {
 }
 
 div.scrollmenu {
-
+  
   background-image: url(https://www.chinelazjournal.com/wp-content/uploads/2020/07/My-Favorite-Dessert-Quotes-min-1024x576.png);
   background-size: 30rem;
   background-repeat: no-repeat;
