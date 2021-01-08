@@ -41,8 +41,8 @@ function renderOneDessert(dessertObj) {
             <input type="text" name="picture" value="" placeholder="${dessertObj.picture}" class="update-dessert-picture-${dessertObj.id}" />
             <br />
             <button type='button' dessertid='${dessertObj.id}' other='${dessertObj.id}' class='update-dessert-button'> Update this dessert</button>
-            <button type='button' id='delete-${dessertObj.id}' dessertId='${dessertObj.id}' class='delete-dessert-button'> Delete this dessert</button>
-          </form>`
+            </form>`
+            // <button type='button' id='delete-${dessertObj.id}' dessertId='${dessertObj.id}' class='delete-dessert-button'> Delete this dessert</button>
       div.append(editDiv)
       const deleteButton = document.querySelector(`#delete-${dessertObj.id}`)
       
@@ -189,6 +189,7 @@ dessertCollection.addEventListener("click", function(event) {
      const closest = specificAddButton.closest("div")
       const omg = closest.querySelector("img")
       const omgName = closest.querySelector("h2")
+      omgName.className = 'favH2'
      let omgNameText = omgName.innerText 
       const nameTextA = document.createElement("a")
       nameTextA.id = `${newFav.id}`

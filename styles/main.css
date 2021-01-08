@@ -98,11 +98,14 @@ h3 {
   height: 200px;
   border: 30px solid transparent;
   padding: 10px;
-  background-image: ; url(https://www.shutterstock.com/image-photo/flat-lay-baking-utensils-ingredient-on-448761430);
+  background-image: url(https://www.shutterstock.com/image-photo/flat-lay-baking-utensils-ingredient-on-448761430);
 }
 
 div.scrollmenu {
-  background-color: purple;
+
+  background-image: url(https://www.chinelazjournal.com/wp-content/uploads/2020/07/My-Favorite-Dessert-Quotes-min-1024x576.png);
+  background-size: 30rem;
+  background-repeat: no-repeat;
   overflow: auto;
   white-space: nowrap;
   
@@ -115,10 +118,9 @@ div.scrollmenu {
 }
 
 
-
 div.scrollmenu a{
   display: inline-block;
-  color: white;
+  color: rgb(225, 209, 64);
   text-align: center;
   padding: 14px;
   text-decoration: none;
